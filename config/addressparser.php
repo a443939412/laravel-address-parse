@@ -14,9 +14,9 @@ return [
     | is not specified, the plug-in's own file will be used by default.
     |
     */
-    'dateProvicder' => [
-        'driver' => 'file',
-        //'model' => 'Zifan\AddressParser\Models\Area',
+    'dataProvider' => [
+        //'driver' => 'file',
+        //'model' => 'Zifan\LaravelAddressParser\Models\Area',
         //'table' => 'areas',
         //'path' => '',
     ],
@@ -57,11 +57,11 @@ return [
     | extracted.
     */
     'extra' => [
-        'street' => false,  // 街道（不支持）
-        'idn' => false,     // 身份证号
-        'mobile' => false,  // 联系方式（手机号/座机号）
-        'postcode' => false,// 邮编
-        'name' => false,    // 姓名（准确度低）
+        'sub_district' => false,   // 村乡镇/街道（准确度低）
+        'idn' => false,            // 身份证号
+        'mobile' => false,         // 联系方式（手机号/座机号）
+        'postcode' => false,       // 邮编
+        'person' => false,         // 姓名（准确度低）
     ],
 
     /*

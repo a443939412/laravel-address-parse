@@ -1,6 +1,6 @@
 <?php
 
-namespace Zifan\AddressParser\Facades;
+namespace Zifan\LaravelAddressParser\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

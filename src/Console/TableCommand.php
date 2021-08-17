@@ -1,6 +1,6 @@
 <?php
 
-namespace Zifan\AddressParser\Console;
+namespace Zifan\LaravelAddressParser\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;

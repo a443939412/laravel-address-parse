@@ -6,3 +6,22 @@ All notable changes to `LaravelAddressparser` will be documented in this file.
 
 ### Added
 - Everything
+
+## Memo: just for development
+{
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/",
+            "Zifan\\LaravelAddressParser\\": "packages/Zifan/laravel-addressparser/src"
+        }
+    },
+    "repositories": {
+        "zifan/laravel-addressparser": {
+            "type": "path",
+            "url": "packages/Zifan/laravel-addressparser",
+            "options": {
+                "symlink": true
+            }
+        }
+    }
+}

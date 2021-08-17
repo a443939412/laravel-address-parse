@@ -1,13 +1,13 @@
 <?php
 
-namespace Zifan\AddressParser\Models;
+namespace Zifan\LaravelAddressParser\Models;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Zifan\AddressParser\DataProviderInterface;
 
 /**
- * Zifan\AddressParser\Models\Area
+ * Zifan\LaravelAddressParser\Models\Area
  *
  * @property int $id
  * @property string $name 名称

@@ -1,8 +1,10 @@
 <?php
 
-namespace Zifan\AddressParser;
+namespace Zifan\LaravelAddressParser;
 
 use Illuminate\Support\ServiceProvider;
+use Zifan\AddressParser\AddressParser;
+use Zifan\LaravelAddressParser\Console\TableCommand;
 
 class AddressParserServiceProvider extends ServiceProvider
 {
@@ -35,14 +37,14 @@ class AddressParserServiceProvider extends ServiceProvider
 
         // Register the service the package provides.
         $this->app->singleton('addressparser', function ($app) {
-            return new AddressParser;
+            /** @var \Illuminate\Foundation\Application $app */
+            return new AddressParser($app->config['addressparser']);
         });
 
-
         //$this->app->singleton('command.addressparser.table', function ($app) {
-        //    return new \Zifan\AddressParser\Console\TableCommand($app['files'], $app['composer']);
+        //    return new TableCommand($app['files'], $app['composer']);
         //});
-        $this->commands('Zifan\AddressParser\Console\TableCommand');
+        $this->commands(TableCommand::class);
     }
 
     /**
