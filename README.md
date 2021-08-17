@@ -27,6 +27,18 @@ $ php artisan vendor:publish --tag="addressparser.config"
 ```
 After run command you can find config file in `config/addressparser.php`, in this file you can change the settings.
 
+## Configuration
+
+* dataProvider array ['driver' => 'database', 'model' => 'Zifan\LaravelAddressParser\Models\Area']
+
+If you use the plug-in's default data provider, follow these instructions:
+
+```
+$ php artisan address-parser:table
+$ php artisan migrate
+```
+* Omit others
+
 ## Usage
 
 \AddressParser::smart('浙江省杭州市滨江区西兴街道滨康路228号万福中心A座21楼');

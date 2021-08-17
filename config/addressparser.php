@@ -15,8 +15,8 @@ return [
     |
     */
     'dataProvider' => [
-        //'driver' => 'file',
-        //'model' => 'Zifan\LaravelAddressParser\Models\Area',
+        'driver' => 'database',
+        'model' => 'Zifan\LaravelAddressParser\Models\Area',
         //'table' => 'areas',
         //'path' => '',
     ],
