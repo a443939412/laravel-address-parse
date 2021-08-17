@@ -18,7 +18,7 @@ Requirements
 Via Composer
 
 ``` bash
-$ composer require zifan/addressparser
+$ composer require zifan/laravel-addressparser
 ```
 Then run these commands to publish config：
 
