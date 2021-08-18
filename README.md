@@ -29,7 +29,10 @@ After run command you can find config file in `config/addressparser.php`, in thi
 
 ## Configuration
 
-* dataProvider array ['driver' => 'database', 'model' => 'Zifan\LaravelAddressParser\Models\Area']
+* dataProvider array Default setting: [
+      'driver' => 'database', 
+      'model' => 'Zifan\LaravelAddressParser\Models\Area'
+  ]
 
 If you use the plug-in's default data provider, follow these instructions:
 
