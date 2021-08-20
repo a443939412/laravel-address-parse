@@ -38,7 +38,7 @@ If you use the plug-in's default data provider, follow these instructions:
 
 ```
 $ php artisan address-parser:table
-$ php artisan migrate
+$ php artisan migrate --step
 ```
 * Omit others
 
