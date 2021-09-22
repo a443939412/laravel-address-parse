@@ -9,7 +9,7 @@
             "homepage": "https://github.com/a443939412"
         }
     ],
-    "homepage": "https://github.com/zifan/laravel-addressparser",
+    "homepage": "https://github.com/a443939412/laravel-address-parse",
     "keywords": ["Laravel", "AddressParser", "address parse"],
     "require": {
         "illuminate/support": "~5|~6|~7|~8",
