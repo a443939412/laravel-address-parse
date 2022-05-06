@@ -3,7 +3,6 @@
 namespace Zifan\LaravelAddressParser;
 
 use Illuminate\Support\ServiceProvider;
-use Zifan\AddressParser\AddressParser;
 use Zifan\LaravelAddressParser\Console\TableCommand;
 
 class AddressParserServiceProvider extends ServiceProvider
@@ -38,23 +37,13 @@ class AddressParserServiceProvider extends ServiceProvider
         // Register the service the package provides.
         $this->app->singleton('addressparser', function ($app) {
             /** @var \Illuminate\Foundation\Application $app */
-            return new AddressParser($app->config['addressparser']);
+            return new SmartParser($app->config['addressparser']);
         });
 
         //$this->app->singleton('command.addressparser.table', function ($app) {
         //    return new TableCommand($app['files'], $app['composer']);
         //});
         $this->commands(TableCommand::class);
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return ['addressparser'];
     }
 
     /**

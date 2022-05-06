@@ -45,6 +45,6 @@ class AfterFailedParsing
      */
     public function getResult()
     {
-        return $this->origin;
+        return $this->result;
     }
 }
