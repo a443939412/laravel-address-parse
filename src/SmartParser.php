@@ -7,7 +7,7 @@ use Zifan\LaravelAddressParser\Events\AfterFailedParsing;
 
 class SmartParser extends AddressParser
 {
-    public function smart(string $address)
+    public function smart(string $address): array
     {
         $origin = $address;
 
