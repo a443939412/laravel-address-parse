@@ -26,4 +26,14 @@ class SmartParser extends AddressParser
 
         return $result ?: array_fill_keys(['province', 'city', 'district'], null) + ['address' => $address];
     }
+
+    /**
+     * Return the AddressParser instance.
+     *
+     * @return $this
+     */
+    public function instance()
+    {
+        return $this;
+    }
 }

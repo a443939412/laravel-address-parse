@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Facade;
  * @method static array smart(string $address)
  * @method static array|false|string[]|null handle(string $address)
  * @method static array getAreas()
- * @method static \Zifan\AddressParser\AddressParser release()
- * @method static \Zifan\AddressParser\AddressParser config()
+ * @method static \Zifan\LaravelAddressParser\SmartParser release()
+ * @method static \Zifan\LaravelAddressParser\SmartParser config()
+ * @method static \Zifan\LaravelAddressParser\SmartParser instance()
  */
 class AddressParser extends Facade
 {
