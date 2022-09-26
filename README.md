@@ -9,7 +9,7 @@ Take a look at [contributing.md](contributing.md) to see a to do list.
 
 Requirements
 ------------
- - PHP >= 7.0.0
+ - PHP >= 7.1.0
  - Mbstring PHP Extension
  - Laravel >= 5.5.0
 
