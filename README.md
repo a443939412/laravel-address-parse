@@ -23,7 +23,7 @@ $ composer require zifan/laravel-addressparser
 Then run these commands to publish config：
 
 ```
-$ php artisan vendor:publish --tag="addressparser.config"
+$ php artisan vendor:publish --tag="addressparser.php"
 ```
 After run command you can find config file in `config/addressparser.php`, in this file you can change the settings.
 
