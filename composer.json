@@ -13,7 +13,7 @@
     "keywords": ["Laravel", "AddressParser", "address parse"],
     "require": {
         "php": ">=7.1",
-        "illuminate/support": "~5|~6|~7|~8",
+        "illuminate/support": "~5|~6|~7|~8|~9|~10",
 		"zifan/addressparser": "~2.2.3"
     },
     "require-dev": {
