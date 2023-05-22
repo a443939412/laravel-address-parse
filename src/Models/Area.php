@@ -2,6 +2,7 @@
 
 namespace Zifan\LaravelAddressParser\Models;
 
+use Closure;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Zifan\AddressParser\DataProviderInterface;
@@ -27,8 +28,12 @@ class Area extends Model implements DataProviderInterface
     public $timestamps = false;
 
     /**
-     * @internal 解决依赖：模拟引入 Trait 类，避免直接 use \Encore\Admin\Traits\ModelTree，因为引用外部类须先添加 composer 依赖
-     * @see \Encore\Admin\Traits\ModelTree
+     * @var Closure
+     */
+    protected $queryAllNodesCallback;
+
+    /**
+     * @internal 解决依赖：模拟引入 Trait 类
      */
     protected function initializeTraits()
     {
@@ -54,7 +59,7 @@ class Area extends Model implements DataProviderInterface
      * @return array
      * @see \Encore\Admin\Traits\ModelTree::toTree() 参考实现
      */
-    public function toTree()
+    public function toTree(): array
     {
         $nodes = $this->allNodes();
 
@@ -64,20 +69,21 @@ class Area extends Model implements DataProviderInterface
     /**
      * Get all elements.
      *
-     * @return mixed
+     * @return array
+     * @link https://blog.csdn.net/BHSZZY/article/details/120154941 #order by = 用法说明
      */
     public function allNodes()
     {
-        $orderColumn = DB::getQueryGrammar()->wrap('id');
-        $byOrder = $orderColumn.' = 0,'.$orderColumn;
+        $query = static::query();
 
-        $self = new static();
+        /*$orderColumn = $query->grammar->wrap('parent_id');
+        $byOrder = $orderColumn.' = 0,'.$orderColumn;*/
 
-        //if ($this->queryCallback instanceof \Closure) {
-        //    $self = call_user_func($this->queryCallback, $self);
-        //}
+        if ($this->queryAllNodesCallback instanceof Closure) {
+            call_user_func($this->queryAllNodesCallback, $query);
+        }
 
-        return $self->orderByRaw($byOrder)->get()->toArray();
+        return $query->get()->toArray(); // ->orderByRaw($byOrder)
     }
 
     /**
@@ -88,7 +94,7 @@ class Area extends Model implements DataProviderInterface
      *
      * @return array
      */
-    protected function buildNestedArray(array $nodes = [], $parentId = 0)
+    protected function buildNestedArray(array $nodes = [], $parentId = 0): array
     {
         $branch = [];
 
@@ -107,5 +113,19 @@ class Area extends Model implements DataProviderInterface
         }
 
         return $branch;
+    }
+
+    /**
+     * Set all nodes query callback to model.
+     *
+     * @param Closure $callback
+     *
+     * @return $this
+     */
+    public function withAllNodesQuery(Closure $callback)
+    {
+        $this->queryAllNodesCallback = $callback;
+
+        return $this;
     }
 }

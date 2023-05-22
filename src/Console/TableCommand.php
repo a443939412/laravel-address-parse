@@ -50,8 +50,6 @@ class TableCommand extends Command
     {
         parent::__construct();
 
-        // $this->setAliases(['addr-parser:table']);
-
         $this->files = $files;
         $this->composer = $composer;
     }
@@ -63,15 +61,16 @@ class TableCommand extends Command
      */
     public function handle()
     {
-        $table = $this->laravel['config']['addressparser.dateProvicder.table'] ?? 'areas';
+        $table = $this->laravel['config']['addressparser.dataProvider.table'] ?? 'areas';
 
         $this->replaceMigration(
             $this->createBaseMigration($table), $table, Str::studly($table)
         );
 
-        $this->info('Migration created successfully!');
+        // $this->info('Migration created successfully!'); 下面通知方式更符合lv高版本风格
+        $this->components->info('Migration created successfully.');
 
-        $this->composer->dumpAutoloads();
+        // $this->composer->dumpAutoloads();
     }
 
     /**
@@ -83,7 +82,7 @@ class TableCommand extends Command
     protected function createBaseMigration($table)
     {
         return $this->laravel['migration.creator']->create(
-            'create_'.$table.'_table', $this->laravel->databasePath().'/migrations' // __DIR__.'/../../database/migrations';
+            'create_'.$table.'_table', $this->laravel->databasePath().'/migrations'
         );
     }
 
